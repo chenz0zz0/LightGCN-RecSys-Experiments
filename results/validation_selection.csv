@@ -1,0 +1,5 @@
+dataset,val_ratio,selected_epoch,selection_rule,validation_safe_test_precision@20,validation_safe_test_recall@20,validation_safe_test_ndcg@20
+gowalla,0.1,1240,early stopping on validation Recall@20,0.0536958269,0.1761955067,0.1481041505
+yelp2018,0.1,660,early stopping on validation Recall@20,0.0265220412,0.0594399238,0.0483139149
+amazon-book,0.1,1960,best validation Recall@20 within 2000-epoch budget,0.0162702559,0.0397450591,0.0302533916
+lastfm,0.1,430,early stopping on validation Recall@20,0.0717438105,0.2547983919,0.1936564177

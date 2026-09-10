@@ -8,7 +8,6 @@ venv/
 code/checkpoints/
 code/runs/
 results/*/
-data/
 *.pt
 *.pth
 *.pth.tar

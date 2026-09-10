@@ -54,35 +54,24 @@ Selected measurements:
 
 These are **epoch-level** speedups, not claims of equivalent convergence speed. Larger batches reduce optimizer updates per epoch and can change the training trajectory. On the Gowalla validation-safe runs, the measured end-to-end time changed from about 31.9 h (batch 2048) to 22.4 h (batch 8192), about a 30% reduction rather than 4.35x.
 
-## Dataset layout
+## Datasets
 
-The repository includes the processed benchmark data used by the original LightGCN implementation so the experiments can be reproduced without an additional dataset-preparation step.
+The repository includes the processed benchmark datasets used in the experiments:
 
-For Gowalla, Yelp2018, and Amazon-book, each line of `train.txt` / `test.txt` is:
+- **Gowalla**
+- **Yelp2018**
+- **Amazon-book**
+- **LastFM**
+
+For Gowalla, Yelp2018, and Amazon-book, each line of `train.txt` / `test.txt` stores one user ID followed by the corresponding interacted item IDs:
 
 ```text
 user_id item_id_1 item_id_2 item_id_3 ...
 ```
 
-LastFM uses the original repository's `data1.txt`, `test1.txt`, and `trustnetwork.txt` files.
+LastFM uses the processed `data1.txt`, `test1.txt`, and `trustnetwork.txt` files from the original LightGCN repository.
 
-The included data follow this directory structure:
-
-```text
-data/
-├── gowalla/train.txt
-├── gowalla/test.txt
-├── yelp2018/train.txt
-├── yelp2018/test.txt
-├── amazon-book/train.txt
-├── amazon-book/test.txt
-└── lastfm/
-    ├── data1.txt
-    ├── test1.txt
-    └── trustnetwork.txt
-```
-
-Processed benchmark data under `data/` are kept in the repository for reproducibility. Model checkpoints and generated run directories are excluded from version control.
+The processed files are kept under `data/` so the experiments in this repository can be run without an additional dataset-preparation step.
 
 ## Installation
 
@@ -190,13 +179,13 @@ It does **not** claim to implement FAISS or approximate nearest-neighbor retriev
 
 ```text
 .
-├── code/                  # data loading, LightGCN, BPR training, evaluation, inference
+├── code/                  # training, evaluation, data loading, and inference
 ├── data/                  # processed benchmark datasets
-├── tests/                 # math and evaluation-masking audits
-├── results/               # curated CSV summaries
-├── requirements.txt
+├── results/               # curated experiment summaries
+├── tests/                 # math and evaluation-masking tests
 ├── .gitignore
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
 ## Acknowledgements
